@@ -22,6 +22,4 @@ Test datasets can be found in `./dataset/val`.
 
 ## Matters needing attention
 
-This paper is under submission. We will release the code after paper acceptance. 
-
 If you have any question, please feel free to contact the author by 3111314916@qq.com.
