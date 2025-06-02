@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+	<link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+	<link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+	<link rel="stylesheet" href="./static/css/index.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script defer src="./static/js/fontawesome.all.min.js"></script>
+	<script src="./static/js/bulma-carousel.min.js"></script>
+	<script src="./static/js/bulma-slider.min.js"></script>
+	<script src="./static/js/index.js"></script>
+	<script>(function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+	<script>window.twttr = (function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0],
+				t = window.twttr || {};
+			if (d.getElementById(id)) return t;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js, fjs);
+
+			t._e = [];
+			t.ready = function (f) {
+				t._e.push(f);
+			};
+
+			return t;
+		}(document, "script", "twitter-wjs"));</script>
+	<style type="text/css">
+		body {
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+			font-weight: 300;
+			font-size: 18px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 1100px;
+		}
+
+		h1 {
+			font-size: 32px;
+			font-weight: 300;
+		}
+
+		.disclaimerbox {
+			background-color: #eee;
+			border: 1px solid #eeeeee;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			padding: 20px;
+		}
+
+		video.header-vid {
+			height: 140px;
+			border: 1px solid black;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
+
+		img.header-img {
+			height: 140px;
+			border: 1px solid black;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
+
+		img.rounded {
+			border: 1px solid #eeeeee;
+			border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+		}
+
+		a:link,
+		a:visited {
+			color: #1367a7;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #208799;
+		}
+
+		td.dl-link {
+			height: 160px;
+			text-align: center;
+			font-size: 22px;
+		}
+
+		code {
+			display: block;
+			white-space: pre-wrap font-family: Consolas, "courier new";
+			color: crimson;
+			background-color: #f1f1f1;
+			padding: 2px;
+			font-size: 105%;
+		}
+
+		pre {
+			font-family: monospace;
+		}
+
+		.layered-paper-big {
+			/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+			box-shadow:
+				0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The top layer shadow */
+				5px 5px 0 0px #fff,
+				/* The second layer */
+				5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The second layer shadow */
+				10px 10px 0 0px #fff,
+				/* The third layer */
+				10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The third layer shadow */
+				15px 15px 0 0px #fff,
+				/* The fourth layer */
+				15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The fourth layer shadow */
+				20px 20px 0 0px #fff,
+				/* The fifth layer */
+				20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The fifth layer shadow */
+				25px 25px 0 0px #fff,
+				/* The fifth layer */
+				25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+			/* The fifth layer shadow */
+			margin-left: 10px;
+			margin-right: 45px;
+		}
+
+		.paper-big {
+			/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+			box-shadow:
+				0px 0px 1px 1px rgba(0, 0, 0, 0.35);
+			/* The top layer shadow */
+
+			margin-left: 10px;
+			margin-right: 45px;
+		}
+
+
+		.layered-paper {
+			/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+			box-shadow:
+				0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The top layer shadow */
+				5px 5px 0 0px #fff,
+				/* The second layer */
+				5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+				/* The second layer shadow */
+				10px 10px 0 0px #fff,
+				/* The third layer */
+				10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+			/* The third layer shadow */
+			margin-top: 5px;
+			margin-left: 10px;
+			margin-right: 30px;
+			margin-bottom: 5px;
+		}
+
+		.vert-cent {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		hr {
+			border: 0;
+			height: 1px;
+			background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+		}
+	</style>
+
+	<html>
+
+	<head>
+		<title>HES-UNet: A U-Net for Hepatic Echinococcosis Lesion Segmentation
+		</title>
+		<meta property="og:image" content="./images/paper.png" />
+		<!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+		<meta property="og:title"
+			content="HES-UNet: A U-Net for Hepatic Echinococcosis Lesion Segmentation" />
+		<meta property="og:description"
+			content="HES-UNet is an efficient model for hepatic echinococcosis lesion segmentation, effectively aggregating multi-scale feature information and incorporating global attention modules to achieve precise segmentation of lesion regions." />
+
+		<script async src=""></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+
+			gtag('config', 'UA-75863369-6');
+		</script>
+		<link rel="icon" type="image/png"
+			href="https://cdn4.iconfinder.com/data/icons/medical-and-healthcare-27/64/medical_medicine_healthcare_health_hospital-512.png" />
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+	</head>
+
+<body>
+	<script type="text/javascript" src="script.js"></script>
+	<br>
+	<center>
+		<!-- <img class="round" style="width:500px" src="./images/CPM/cvpr.jpg"/> -->
+		<!-- <br/> -->
+		<!-- <br/> -->
+		<!-- <hr> -->
+		<span style="font-size:36px">STGAN: Swin Transformer-based GAN to achieve remote sensing image super-resolution reconstruction</span>
+		<br>
+		<span style="font-size:20px; color:#011B56;">━ <a href="">Arxiv 2024</a> ━</span> <br>
+		
+		<table align=center width=750px>
+
+
+
+
+			<table align=center width=475px>
+				<tr>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px"><a href="https://hw-star.icu/">Wei Huo<sup>1</sup></a></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px"><a href="">Xiaodan Zhang<sup>1</sup></a></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px">Shaojie You<sup>1</sup></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<table align=center width=475px>
+				<tr>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px"><a href=""></a>Yongkun Zhang<sup>1</sup></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px">Qiyuan Zhang<sup>1</sup></a></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:20px">Naihao Hu<sup>1</sup></a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+			
+
+
+
+
+			<table align="center" width="700px">
+				<tr>
+					<td align="center" width="150px" style="text-align: center;">
+						<span style="font-size:18px;">
+							<a href="https://cs.qhu.edu.cn/"><sup>1</sup>Qinghai University</a>
+						</span>
+						
+					</td>
+					
+				</tr>
+				<tr>
+					<td align="center" width="150px" style="text-align: center;">
+						<span style="font-size:18px;">
+							<a href="https://www.qhuah.com/"><sup>3</sup>Affiliated Hospital of Qinghai University</a>
+						</span>
+					</td>
+				</tr>
+			</table>
+			
+			<table align=center width=350px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:22px">
+								<a href="">
+									[arXiv📝]
+								</a>
+							</span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:22px">
+								<a href=''>
+									[code⚙️]
+								</a>
+							</span>
+							<br>
+						</center>
+					</td>
+					<!-- <td align=center, width=120px>
+						<center>
+							<span style="font-size:22px"><a href='#'>[poster 🖼️]</a></span><br>
+
+						</center>
+					</td> -->
+					<!-- <td align=center, width=120px>
+						<center>
+							<span style="font-size:22px"><a href='https://huggingface.co/JusperLee/Apollo'>[EchoSet
+								🖼️]</a></span><br>
+
+						</center>
+					</td> -->
+				</tr>
+			</table>
+		</table>
+		
+		<img class="round" style="width:200px" src="./assets/logo.png" />
+		<!-- <p style="max-width:750px;"><a style="color:red;">HES-UNet</a> is an <a style="color: blue;"> efficient model </a>
+			for hepatic echinococcosis lesion segmentation, 
+			<a style="color:green;">effectively aggregating multi-scale feature information and incorporating global attention modules to achieve precise segmentation of lesion regions.</a> -->
+	</center>
+	<hr>
+	<table align=center width=850px>
+		<center>
+			<h1>Abstract</h1>
+		</center>
+		<tr>
+			<td style="text-align: justify;">
+				Super-resolution (SR) of remote sensing images is essential to compensate for
+				missing information in the original high-resolution (HR) images. Single-image superresolution (SISR) technique aims to recover high-resolution images from low-resolution
+				(LR) images. However, traditional SISR methods often result in blurred and unclear images
+				due to the loss of high-frequency details in LR images at high magnifications. In this paper,
+				a super-segmental reconstruction model STGAN for remote sensing images is proposed,
+				which fuses the Generative Adversarial Networks (GANs) and self-attention mechanism
+				based on the Reference Super Resolution method (RefSR). The core module of the model
+				consists of multiple CNN-Swin Transformer blocks (MCST), each of which consists of
+				a CNN layer and a specific modified Swin Transformer, constituting the feature extraction channel. In image hypersegmentation reconstruction, the optimized and improved
+				correlation attention block (RAM-V) uses feature maps and gradient maps to improve
+				the robustness of the model under different scenarios (such as land cover change). 
+				<a style="color:blue;">
+					The
+				experimental results show that the STGAN model proposed in this paper exhibits the best
+				image data perception quality results with the best performance of LPIPS and PI metrics in
+				the test set under RRSSRD public datasets. In the experimental test set, the PSNR reaches
+				31.4151, the SSIM is 0.8408, and the performance on the RMSE and SAM metrics is excellent,
+				which demonstrate the model’s superior image reconstruction details in super-resolution
+				reconstruction and highlighting the great potential of RefSR’s application to the task of
+				super-scalar processing of remotely sensed images.. 
+				</a>					
+			</td>
+		</tr>
+	</table>
+	<br>
+	<center>
+		<table align=center width=850px>
+			<tr>
+				<td width=260px>
+					<center>
+						<img class="round" style="width:1000px" src="./assets/hesunet.png" />
+					</center>
+				</td>
+			</tr>
+		</table>
+		<table align=center width=850px>
+			<tr>
+				<td>
+					<center>
+						Overall pipeline of the model architecture of <a style="color:rgb(255, 136, 0);">HES-UNet</a> and
+						its
+						<a style="color:rgb(187, 0, 255);">modules</a>.
+					</center>
+				</td>
+			</tr>
+		</table>
+	</center>
+	<hr>
+
+	<center>
+		<h1>Results on HE Lesion Segmentation</h1>
+	</center>
+	<center>
+		<p><img class="round" style='width: 650px' src='./assets/result.png'>
+		<figcaption>
+
+			<a style="color: hotpink;">Performance comparisons</a> of our HES-UNet and other existing segmentation models. 
+			Bold indicates optimal performance.
+		</figcaption>
+	</center>
+	<center>
+		<p><img class="round" style='width: 800px' src='./assets/ablation.png'>
+		<figcaption>
+			<a style="color: hotpink;">Ablation study</a> of the different modules in the HES-UNet. Bold indicates optimal performance.
+	</center>
+	<hr>
+
+	<center>
+		<h1>HE Lesion Segmentation Demos</h1>
+	</center>
+	<center>
+			The following <a style="color: hotpink;">demos</a> illustrate a comparison between HES-UNet and other existing segmentation models on our dataset.
+			In the visualization, true positives (TP) are highlighted in <a style="color: #60cf3d">green</a>, 
+			 false positives (FP) in <a style="color: #1526a9">blue</a>, 
+			 and false negatives (FN) in <a style="color: #ea338f">hotpink</a>.
+
+
+
+		<!-- 
+			这里放CE的Sample的结果
+		 -->
+		<h3 style="font-weight: bold; color: #ECAEA7">Cystic Echinococcosis Lesion Segmentation Sample</h3>
+		<p><img class="round" style='width: 1100px' src='./assets/CE_sample_1.png'>
+		<img class="round" style='width: 1100px' src='./assets/CE_sample_2.png'>
+
+
+
+
+	</center>
+	<center>
+		<h3 style="font-weight: bold; color: #ECAEA7">Alveolar Echinococcosis Lesion Segmentation Sample</h3>
+		<p><img class="round" style='width: 1100px' src='./assets/AE_sample_1.png'>
+			<img class="round" style='width: 1100px' src='./assets/AE_sample_2.png'>
+		<!-- 
+			这里放AE的Sample的结果
+		 -->
+	</center>
+
+
+
+
+
+
+
+	<hr>
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center>
+						<h1>Acknowledgements</h1>
+					</center>
+					Website template was borrowed from <a href="http://richzhang.github.io/colorization/">Colorful Image
+						Colorization</a> and <a href="https://nerfies.github.io/">Nerfies</a>; the code can be found <a
+						href="https://github.com/richzhang/webpage-template">here</a> and <a
+						href="https://github.com/nerfies/nerfies.github.io">here</a>. Thank you (.❛ ᴗ ❛.).
+				</left>
+			</td>
+		</tr>
+	</table>
+	<br>
+</body>
+
+</html>
